@@ -316,6 +316,104 @@
   .summary-actions button { flex: 1; padding: 14px; border-radius: 12px; font-size: 14px; font-weight: 700; font-family: var(--sans); cursor: pointer; border: none; }
   .summary-share-btn { background: var(--cyan); color: #000; }
   .summary-dismiss-btn { background: #1a1a1a; color: #888; border: 1px solid #2a2a2a !important; }
+
+  /* INTERVAL TIMER */
+  .interval-card { background: var(--bg2); border: 1px solid var(--border); border-radius: 16px; overflow: hidden; margin: 10px 0; }
+  .interval-phase-header {
+    padding: 16px 18px 12px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .interval-phase-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; }
+  .interval-phase-label.work { color: var(--rose); }
+  .interval-phase-label.recovery { color: var(--green); }
+  .interval-round-badge {
+    font-family: var(--mono); font-size: 12px; color: var(--text2);
+    background: var(--bg3); border: 1px solid var(--border);
+    padding: 3px 10px; border-radius: 99px;
+  }
+  .interval-big-time {
+    font-family: var(--mono); font-size: 72px; font-weight: 700;
+    text-align: center; line-height: 1; padding: 8px 0 4px;
+    transition: color 0.3s;
+  }
+  .interval-big-time.work { color: var(--rose); }
+  .interval-big-time.recovery { color: var(--green); }
+  .interval-instruction {
+    font-size: 13px; color: var(--text2); text-align: center;
+    padding: 0 20px 16px; line-height: 1.5;
+  }
+  .interval-rpe {
+    display: inline-block; font-size: 11px; font-weight: 700;
+    padding: 2px 8px; border-radius: 6px; margin-bottom: 6px;
+  }
+  .interval-rpe.work { background: var(--rose-dim); color: var(--rose); }
+  .interval-rpe.recovery { background: var(--green-dim); color: var(--green); }
+  .interval-progress-row {
+    display: flex; gap: 4px; padding: 0 18px 16px; flex-wrap: wrap;
+  }
+  .interval-dot {
+    flex: 1; min-width: 18px; height: 6px; border-radius: 3px;
+    background: var(--bg3); border: 1px solid var(--border); transition: background 0.3s;
+  }
+  .interval-dot.done { background: var(--cyan); border-color: var(--cyan); }
+  .interval-dot.active { background: var(--rose); border-color: var(--rose); }
+  .interval-controls {
+    display: flex; gap: 10px; padding: 0 18px 18px;
+  }
+  .interval-btn {
+    flex: 1; padding: 13px; border-radius: 12px; font-size: 15px;
+    font-weight: 700; font-family: var(--sans); cursor: pointer; border: none;
+    transition: opacity 0.15s;
+  }
+  .interval-btn:active { opacity: 0.75; }
+  .interval-btn.start { background: var(--cyan); color: #000; }
+  .interval-btn.pause { background: var(--amber); color: #000; }
+  .interval-btn.reset { background: var(--bg3); color: var(--text2); border: 1px solid var(--border); flex: 0 0 56px; }
+  .interval-complete {
+    text-align: center; padding: 24px 20px;
+    background: var(--green-dim); border-top: 1px solid var(--green);
+  }
+  .interval-complete-title { font-size: 20px; font-weight: 700; color: var(--green); margin-bottom: 4px; }
+  .interval-complete-sub { font-size: 13px; color: var(--text2); }
+  .interval-breakdown { padding: 0 18px 16px; }
+  .interval-step-row {
+    display: flex; align-items: center; gap: 12px;
+    padding: 10px 0; border-bottom: 1px solid var(--border);
+    font-size: 13px;
+  }
+  .interval-step-row:last-child { border-bottom: none; }
+  .interval-step-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+
+  /* IMPORT MODAL */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(0,0,0,0.85);
+    display: flex; align-items: flex-end; justify-content: center;
+    z-index: 400; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+    backdrop-filter: blur(6px);
+  }
+  .modal-overlay.show { opacity: 1; pointer-events: all; }
+  .modal-sheet {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: 20px 20px 0 0; padding: 24px 20px 36px;
+    width: 100%; max-width: 480px;
+  }
+  .modal-title { font-size: 18px; font-weight: 700; margin-bottom: 6px; }
+  .modal-sub { font-size: 13px; color: var(--text2); line-height: 1.5; margin-bottom: 20px; }
+  .modal-stats {
+    background: var(--bg3); border: 1px solid var(--border);
+    border-radius: 12px; padding: 12px 14px; margin-bottom: 20px; font-size: 12px;
+  }
+  .modal-stat-row { display: flex; justify-content: space-between; padding: 3px 0; color: var(--text2); }
+  .modal-stat-row span:last-child { color: var(--text); font-family: var(--mono); }
+  .modal-actions { display: flex; flex-direction: column; gap: 10px; }
+  .modal-btn {
+    width: 100%; padding: 14px; border-radius: 12px; font-size: 14px;
+    font-weight: 700; font-family: var(--sans); cursor: pointer; border: none;
+    text-align: left; display: flex; justify-content: space-between; align-items: center;
+  }
+  .modal-btn .modal-btn-sub { font-size: 11px; font-weight: 400; opacity: 0.7; }
+  .modal-btn.merge { background: var(--cyan); color: #000; }
+  .modal-btn.replace { background: var(--bg3); color: var(--text); border: 1px solid var(--border); }
+  .modal-btn.cancel-btn { background: none; color: var(--text2); justify-content: center; font-weight: 500; }
 </style>
 </head>
 <body>
@@ -453,6 +551,26 @@
   </div>
 </div>
 
+<!-- IMPORT MODAL -->
+<div class="modal-overlay" id="import-modal">
+  <div class="modal-sheet">
+    <div class="modal-title">Import Backup</div>
+    <div class="modal-sub">How would you like to handle this import?</div>
+    <div class="modal-stats" id="import-modal-stats"></div>
+    <div class="modal-actions">
+      <button class="modal-btn merge" onclick="applyImport('merge')">
+        <span>Merge <div class="modal-btn-sub">Combine with existing data. Keeps most recent entry on conflicts.</div></span>
+        <span>→</span>
+      </button>
+      <button class="modal-btn replace" onclick="applyImport('replace')">
+        <span>Replace <div class="modal-btn-sub">Wipe current data and restore from backup.</div></span>
+        <span>→</span>
+      </button>
+      <button class="modal-btn cancel-btn" onclick="closeImportModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
 <!-- WORKOUT SUMMARY OVERLAY -->
 <div class="summary-overlay" id="summary-overlay">
   <div class="summary-card" id="summary-card">
@@ -546,6 +664,11 @@ const PLAN = {
   Tuesday:   { type:'cardio', label:'Intervals', focus:'30 min HIIT — treadmill or bike',
     warmup:  '5 min easy jog or bike at RPE 3–4 to get blood flowing before intervals.',
     cooldown: '5 min easy walk or pedal at RPE 2, then standing quad and calf stretches.',
+    intervals: {
+      rounds: 8,
+      work:   { duration: 60,  label: 'Work',     rpe: '7–8', instruction: 'Hard effort — push the pace. Treadmill: sprint or steep incline. Bike: high resistance, fast cadence.' },
+      rest:   { duration: 90,  label: 'Recovery', rpe: '3–4', instruction: 'Easy pace — catch your breath. Drop speed/resistance, keep moving.' },
+    },
     exercises:[] },
   Wednesday: { type:'strength', label:'Lower Body', focus:'Quads · Hamstrings · Glutes',
     warmup:  '5 min easy bike, then 10 bodyweight squats and 10 hip circles each side.',
@@ -891,6 +1014,7 @@ function renderWorkout() {
 
 function switchDay(d) {
   activeDay = d;
+  if (ivInterval) { clearInterval(ivInterval); ivInterval = null; ivRunning = false; }
   renderWorkout();
 }
 
@@ -938,14 +1062,69 @@ function renderExercises() {
   }
 
   if (plan.type === 'cardio') {
-    content.innerHTML = `
-      ${warmupHtml}
-      <div class="rest-card" style="margin:10px 0">
-        <div class="rest-emoji">🚴</div>
-        <h3>${plan.label}</h3>
-        <p>${plan.focus}</p>
-      </div>
-      ${cooldownHtml}`;
+    if (plan.intervals) {
+      // Tuesday — intervals with live timer
+      const iv = plan.intervals;
+      content.innerHTML = `
+        ${warmupHtml}
+        <div class="section-title" style="margin-top:14px">Interval Breakdown</div>
+        <div class="card" style="margin-bottom:10px">
+          ${[
+            { label: 'Warm-up',   dur: '5 min',  rpe: '3–4', color: 'var(--amber)',  dot: '#f59e0b', inst: plan.warmup },
+            { label: 'Work',      dur: '60 sec', rpe: '7–8', color: 'var(--rose)',   dot: '#f43f5e', inst: iv.work.instruction },
+            { label: 'Recovery',  dur: '90 sec', rpe: '3–4', color: 'var(--green)',  dot: '#22c55e', inst: iv.rest.instruction },
+            { label: '× 8 rounds', dur: '~18 min', rpe: '',  color: 'var(--text2)', dot: '#8888aa', inst: 'Alternate work and recovery for 8 full rounds.' },
+            { label: 'Cool-down', dur: '5 min',  rpe: '2',   color: 'var(--cyan)',   dot: '#00d4ff', inst: plan.cooldown },
+          ].map(s => `
+            <div class="interval-step-row">
+              <div class="interval-step-dot" style="background:${s.dot}"></div>
+              <div style="flex:1">
+                <span style="font-weight:600;color:${s.color}">${s.label}</span>
+                <span style="color:var(--text2)"> — ${s.inst}</span>
+              </div>
+              <div style="text-align:right;flex-shrink:0">
+                <div style="font-family:var(--mono);font-size:13px;color:var(--text)">${s.dur}</div>
+                ${s.rpe ? `<div style="font-size:10px;color:var(--text2)">RPE ${s.rpe}</div>` : ''}
+              </div>
+            </div>`).join('')}
+        </div>
+
+        <div class="section-title">Interval Timer</div>
+        <div class="interval-card" id="interval-card">
+          <div class="interval-phase-header">
+            <span class="interval-phase-label work" id="iv-phase-label">Work</span>
+            <span class="interval-round-badge" id="iv-round-badge">Round 1 of 8</span>
+          </div>
+          <div class="interval-big-time work" id="iv-time">1:00</div>
+          <div style="text-align:center;padding:4px 20px 8px">
+            <span class="interval-rpe work" id="iv-rpe-badge">RPE 7–8</span>
+          </div>
+          <div class="interval-instruction" id="iv-instruction">${iv.work.instruction}</div>
+          <div class="interval-progress-row" id="iv-dots">
+            ${Array.from({length: iv.rounds}, (_,i) =>
+              `<div class="interval-dot${i===0?' active':''}" id="iv-dot-${i}"></div>`
+            ).join('')}
+          </div>
+          <div class="interval-controls">
+            <button class="interval-btn reset" onclick="resetIntervals()" title="Reset">↺</button>
+            <button class="interval-btn start" id="iv-btn" onclick="toggleIntervals()">▶ Start</button>
+          </div>
+        </div>
+        ${cooldownHtml}
+        <div id="cardio-complete-wrap" style="margin-top:12px">${cardioCompleteBtn()}</div>`;
+      initIntervalTimer();
+    } else {
+      // Saturday — steady state
+      content.innerHTML = `
+        ${warmupHtml}
+        <div class="rest-card" style="margin:10px 0">
+          <div class="rest-emoji">🚴</div>
+          <h3>${plan.label}</h3>
+          <p>${plan.focus}</p>
+        </div>
+        ${cooldownHtml}
+        <div id="cardio-complete-wrap" style="margin-top:12px">${cardioCompleteBtn()}</div>`;
+    }
     return;
   }
 
@@ -984,6 +1163,253 @@ function renderExercises() {
 
   content.innerHTML = warmupHtml + exercisesHtml + cooldownHtml;
   save('sstate', sessionState);
+}
+
+// ── CARDIO COMPLETION ─────────────────────────────────────────────────────────
+
+function cardioCompleteBtn() {
+  const dateKey = getThisWeekDate(activeDay);
+  const alreadyLogged = liftLog.some(s => s.date === dateKey && s.day === activeDay);
+  if (alreadyLogged) {
+    const entry = liftLog.find(s => s.date === dateKey && s.day === activeDay);
+    const distStr = entry?.distance ? `${entry.distance} ${entry.distanceUnit}` : '';
+    return `<div style="background:var(--green-dim);border:1px solid var(--green);border-radius:14px;padding:14px 18px;display:flex;align-items:center;gap:10px">
+      <span style="font-size:20px">✅</span>
+      <div>
+        <div style="font-size:14px;font-weight:700;color:var(--green)">Workout Logged${distStr ? ' · ' + distStr : ''}</div>
+        <div style="font-size:12px;color:var(--text2);margin-top:2px">Nice work. See you next session.</div>
+      </div>
+    </div>`;
+  }
+  return `
+    <div style="background:var(--bg2);border:1px solid var(--border);border-radius:14px;padding:14px 16px;margin-bottom:10px">
+      <div style="font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:var(--text2);margin-bottom:10px">Distance Covered (optional)</div>
+      <div style="display:flex;gap:8px;align-items:center">
+        <input type="number" id="cardio-distance" inputmode="decimal" step="0.1" min="0"
+          placeholder="0.0"
+          style="flex:1;background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:var(--mono);font-size:18px;padding:10px 14px;outline:none;max-width:120px">
+        <select id="cardio-distance-unit"
+          style="background:var(--bg3);border:1px solid var(--border);border-radius:10px;color:var(--text);font-family:var(--sans);font-size:14px;padding:10px 12px;outline:none;cursor:pointer;-webkit-appearance:none">
+          <option value="mi">miles</option>
+          <option value="km">km</option>
+        </select>
+      </div>
+    </div>
+    <button class="btn" style="width:100%;padding:14px;font-size:15px" onclick="completeCardio()">✓ Mark Workout Complete</button>`;
+}
+
+function completeCardio() {
+  const dateKey = getThisWeekDate(activeDay);
+  const alreadyLogged = liftLog.some(s => s.date === dateKey && s.day === activeDay);
+  if (alreadyLogged) return;
+  const plan = PLAN[activeDay];
+  const distInput = document.getElementById('cardio-distance');
+  const unitInput = document.getElementById('cardio-distance-unit');
+  const distance = distInput && distInput.value ? parseFloat(distInput.value) : null;
+  const distanceUnit = unitInput ? unitInput.value : 'mi';
+  liftLog.push({ date: dateKey, day: activeDay, type: 'cardio', label: plan.label, distance, distanceUnit });
+  save('llog', liftLog);
+  showCardioSummary(distance, distanceUnit);
+}
+
+function showCardioSummary(distance, distanceUnit) {
+  const plan = PLAN[activeDay];
+  const durationMs = workoutStartTime ? Date.now() - workoutStartTime : null;
+  const durationStr = durationMs
+    ? (() => { const m = Math.floor(durationMs/60000); const s = Math.floor((durationMs%60000)/1000); return m > 0 ? `${m}m ${s}s` : `${s}s`; })()
+    : '—';
+
+  const detail = plan.intervals
+    ? `${plan.intervals.rounds} rounds · ${plan.intervals.work.duration}s work / ${plan.intervals.rest.duration}s rest`
+    : plan.focus;
+
+  const distStr = distance ? `${distance} ${distanceUnit}` : null;
+
+  document.getElementById('sum-title').textContent = plan.label;
+  document.getElementById('sum-date').textContent = new Date().toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
+  document.getElementById('sum-duration').textContent = durationStr;
+  document.getElementById('sum-exercises').textContent = plan.intervals ? plan.intervals.rounds : '—';
+  document.getElementById('sum-sets').parentElement.style.display = distStr ? '' : 'none';
+  if (distStr) {
+    document.getElementById('sum-sets').textContent = distStr;
+    const setsLabel = document.getElementById('sum-sets').nextElementSibling;
+    if (setsLabel) setsLabel.textContent = 'Distance';
+  }
+
+  const roundsLabel = document.getElementById('sum-exercises').nextElementSibling;
+  if (roundsLabel) roundsLabel.textContent = plan.intervals ? 'Rounds' : 'Session';
+
+  document.getElementById('sum-ex-list').innerHTML = `
+    <div class="summary-ex-row">
+      <div>
+        <div class="summary-ex-name">${plan.label}</div>
+        <div class="summary-ex-sets">${detail}</div>
+      </div>
+      <div class="summary-ex-weight" style="color:var(--amber)">${distStr ? distStr : '🔥'}</div>
+    </div>`;
+
+  document.getElementById('summary-overlay').classList.add('show');
+  workoutStartTime = null;
+
+  const wrap = document.getElementById('cardio-complete-wrap');
+  if (wrap) wrap.innerHTML = cardioCompleteBtn();
+}
+
+// ── INTERVAL TIMER ────────────────────────────────────────────────────────────
+
+let ivInterval   = null;
+let ivRunning    = false;
+let ivPhase      = 'work';   // 'work' | 'rest'
+let ivRound      = 0;        // 0-indexed
+let ivRemaining  = 0;
+let ivTotalRounds = 8;
+let ivWorkDur    = 60;
+let ivRestDur    = 90;
+
+function initIntervalTimer() {
+  const plan = PLAN[activeDay];
+  if (!plan.intervals) return;
+  ivTotalRounds = plan.intervals.rounds;
+  ivWorkDur     = plan.intervals.work.duration;
+  ivRestDur     = plan.intervals.rest.duration;
+  ivRunning     = false;
+  ivPhase       = 'work';
+  ivRound       = 0;
+  ivRemaining   = ivWorkDur;
+  updateIntervalUI();
+}
+
+function toggleIntervals() {
+  if (ivRunning) {
+    pauseIntervals();
+  } else {
+    startIntervals();
+  }
+}
+
+function startIntervals() {
+  if (!workoutStartTime) workoutStartTime = Date.now();
+  ivRunning = true;
+  document.getElementById('iv-btn').className = 'interval-btn pause';
+  document.getElementById('iv-btn').textContent = '⏸ Pause';
+  ivInterval = setInterval(() => {
+    ivRemaining--;
+    if (ivRemaining <= 0) {
+      advanceInterval();
+    } else {
+      updateIntervalUI();
+    }
+  }, 1000);
+}
+
+function pauseIntervals() {
+  ivRunning = false;
+  clearInterval(ivInterval); ivInterval = null;
+  const btn = document.getElementById('iv-btn');
+  if (btn) { btn.className = 'interval-btn start'; btn.textContent = '▶ Resume'; }
+}
+
+function advanceInterval() {
+  playBeep();
+  if (ivPhase === 'work') {
+    ivPhase = 'rest';
+    ivRemaining = ivRestDur;
+  } else {
+    ivRound++;
+    if (ivRound >= ivTotalRounds) {
+      // All rounds complete
+      clearInterval(ivInterval); ivInterval = null; ivRunning = false;
+      showIntervalComplete();
+      return;
+    }
+    ivPhase = 'work';
+    ivRemaining = ivWorkDur;
+  }
+  updateIntervalUI();
+}
+
+function resetIntervals() {
+  clearInterval(ivInterval); ivInterval = null;
+  ivRunning = false; ivPhase = 'work'; ivRound = 0;
+  ivRemaining = ivWorkDur;
+  const card = document.getElementById('interval-card');
+  if (card) {
+    const complete = card.querySelector('.interval-complete');
+    if (complete) complete.remove();
+  }
+  const btn = document.getElementById('iv-btn');
+  if (btn) { btn.className = 'interval-btn start'; btn.textContent = '▶ Start'; btn.disabled = false; }
+  updateIntervalUI();
+}
+
+function updateIntervalUI() {
+  const isWork = ivPhase === 'work';
+  const plan = PLAN[activeDay];
+  if (!plan?.intervals) return;
+  const phaseData = isWork ? plan.intervals.work : plan.intervals.rest;
+  const mins = Math.floor(ivRemaining / 60);
+  const secs = String(ivRemaining % 60).padStart(2, '0');
+  const timeStr = `${mins}:${secs}`;
+  const phaseClass = isWork ? 'work' : 'recovery';
+
+  const timeEl = document.getElementById('iv-time');
+  const phaseEl = document.getElementById('iv-phase-label');
+  const roundEl = document.getElementById('iv-round-badge');
+  const instEl = document.getElementById('iv-instruction');
+  const rpeEl = document.getElementById('iv-rpe-badge');
+
+  if (!timeEl) return;
+
+  timeEl.textContent = timeStr;
+  timeEl.className = `interval-big-time ${phaseClass}`;
+  phaseEl.textContent = phaseData.label;
+  phaseEl.className = `interval-phase-label ${phaseClass}`;
+  roundEl.textContent = `Round ${ivRound + 1} of ${ivTotalRounds}`;
+  instEl.textContent = phaseData.instruction;
+  rpeEl.textContent = `RPE ${phaseData.rpe}`;
+  rpeEl.className = `interval-rpe ${phaseClass}`;
+
+  // Update dots — each dot = one full round (work+rest)
+  for (let i = 0; i < ivTotalRounds; i++) {
+    const dot = document.getElementById(`iv-dot-${i}`);
+    if (!dot) continue;
+    if (i < ivRound) { dot.className = 'interval-dot done'; }
+    else if (i === ivRound) { dot.className = `interval-dot active`; dot.style.background = isWork ? 'var(--rose)' : 'var(--green)'; dot.style.borderColor = isWork ? 'var(--rose)' : 'var(--green)'; }
+    else { dot.className = 'interval-dot'; dot.style.background = ''; dot.style.borderColor = ''; }
+  }
+}
+
+function showIntervalComplete() {
+  const card = document.getElementById('interval-card');
+  if (!card) return;
+  const btn = document.getElementById('iv-btn');
+  if (btn) { btn.disabled = true; btn.textContent = 'Complete'; btn.className = 'interval-btn start'; btn.style.background = 'var(--green)'; }
+  // Mark all dots done
+  for (let i = 0; i < ivTotalRounds; i++) {
+    const d = document.getElementById(`iv-dot-${i}`);
+    if (d) { d.className = 'interval-dot done'; d.style.background = ''; d.style.borderColor = ''; }
+  }
+  const complete = document.createElement('div');
+  complete.className = 'interval-complete';
+  complete.innerHTML = `<div class="interval-complete-title">🔥 All 8 Rounds Done!</div>
+    <div class="interval-complete-sub">Head into your cool-down below.</div>`;
+  card.appendChild(complete);
+  playBeep();
+  // Auto log after short delay so user sees the completion banner first
+  setTimeout(() => {
+    const distInput = document.getElementById('cardio-distance');
+    const unitInput = document.getElementById('cardio-distance-unit');
+    const distance = distInput && distInput.value ? parseFloat(distInput.value) : null;
+    const distanceUnit = unitInput ? unitInput.value : 'mi';
+    const dateKey = getThisWeekDate(activeDay);
+    const alreadyLogged = liftLog.some(s => s.date === dateKey && s.day === activeDay);
+    if (!alreadyLogged) {
+      const plan = PLAN[activeDay];
+      liftLog.push({ date: dateKey, day: activeDay, type: 'cardio', label: plan.label, distance, distanceUnit });
+      save('llog', liftLog);
+      showCardioSummary(distance, distanceUnit);
+    }
+  }, 1200);
 }
 
 // ── WORKOUT SUMMARY ───────────────────────────────────────────────────────────
@@ -1114,12 +1540,16 @@ function renderProgress() {
   if (!recent.length) {
     sessEl.innerHTML = '<div class="empty"><span>📋</span>No sessions yet.</div>';
   } else {
-    sessEl.innerHTML = recent.map(s =>
-      `<div class="log-item">
+    sessEl.innerHTML = recent.map(s => {
+      const distStr = s.distance ? `${s.distance} ${s.distanceUnit}` : null;
+      const meta = s.type === 'cardio'
+        ? (distStr || s.label || 'Cardio')
+        : `${s.exercises?.length || 0} exercises`;
+      return `<div class="log-item">
         <div><div style="font-size:14px;font-weight:600">${s.day}</div><div class="log-date">${fmtDisplay(s.date)}</div></div>
-        <div style="font-size:12px;color:var(--text2)">${s.exercises?.length || 0} exercises</div>
-      </div>`
-    ).join('');
+        <div style="font-size:12px;color:var(--text2);text-align:right">${meta}</div>
+      </div>`;
+    }).join('');
   }
 }
 
@@ -1144,6 +1574,8 @@ function exportData() {
   toast('Data exported ✓');
 }
 
+let pendingImport = null;
+
 function importData(e) {
   const file = e.target.files[0];
   if (!file) return;
@@ -1154,22 +1586,79 @@ function importData(e) {
       if (!data.version || !Array.isArray(data.weightLog)) {
         toast('Invalid backup file'); return;
       }
-      weightLog    = data.weightLog    || [];
-      liftLog      = data.liftLog      || [];
-      prs          = data.prs          || {};
-      sessionState = data.sessionState || {};
-      timerDuration = data.timerDuration || 60;
-      timerEnabled  = data.timerEnabled !== undefined ? data.timerEnabled : true;
-      save('wlog', weightLog); save('llog', liftLog);
-      save('prs', prs); save('sstate', sessionState);
-      save('timerDuration', timerDuration); save('timerEnabled', timerEnabled);
-      toast('Data imported ✓');
-      renderProgress();
-      renderDash();
+      pendingImport = data;
+      // Show stats in modal
+      document.getElementById('import-modal-stats').innerHTML = `
+        <div class="modal-stat-row"><span>Weight entries in backup</span><span>${data.weightLog?.length || 0}</span></div>
+        <div class="modal-stat-row"><span>Sessions in backup</span><span>${data.liftLog?.length || 0}</span></div>
+        <div class="modal-stat-row"><span>PRs in backup</span><span>${Object.keys(data.prs || {}).length}</span></div>
+        <div class="modal-stat-row"><span>Weight entries on device</span><span>${weightLog.length}</span></div>
+        <div class="modal-stat-row"><span>Sessions on device</span><span>${liftLog.length}</span></div>`;
+      document.getElementById('import-modal').classList.add('show');
     } catch { toast('Could not read file'); }
   };
   reader.readAsText(file);
   e.target.value = '';
+}
+
+function closeImportModal() {
+  document.getElementById('import-modal').classList.remove('show');
+  pendingImport = null;
+}
+
+function applyImport(mode) {
+  if (!pendingImport) return;
+  const data = pendingImport;
+
+  if (mode === 'replace') {
+    weightLog    = data.weightLog    || [];
+    liftLog      = data.liftLog      || [];
+    prs          = data.prs          || {};
+    sessionState = data.sessionState || {};
+    timerDuration = data.timerDuration || 60;
+    timerEnabled  = data.timerEnabled !== undefined ? data.timerEnabled : true;
+
+  } else {
+    // MERGE — combine arrays, resolve conflicts by keeping most recent
+
+    // Weight log: upsert by date — keep device value if same date (user just logged it)
+    const wMap = {};
+    (data.weightLog || []).forEach(e => wMap[e.date] = e);
+    weightLog.forEach(e => wMap[e.date] = e); // device wins on same date
+    weightLog = Object.values(wMap).sort((a,b) => a.date.localeCompare(b.date));
+
+    // Lift log: upsert by date+day key — keep device entry if duplicate
+    const lMap = {};
+    (data.liftLog || []).forEach(e => lMap[`${e.date}-${e.day}`] = e);
+    liftLog.forEach(e => lMap[`${e.date}-${e.day}`] = e); // device wins
+    liftLog = Object.values(lMap).sort((a,b) => a.date.localeCompare(b.date));
+
+    // PRs: keep whichever has the higher weight
+    const mergedPrs = { ...(data.prs || {}) };
+    Object.entries(prs).forEach(([ex, pr]) => {
+      if (!mergedPrs[ex] || pr.weight >= mergedPrs[ex].weight) {
+        mergedPrs[ex] = pr;
+      }
+    });
+    prs = mergedPrs;
+
+    // Session state: merge by date key — device wins on conflict
+    sessionState = { ...(data.sessionState || {}), ...sessionState };
+
+    // Timer settings: keep device settings
+    timerDuration = timerDuration || data.timerDuration || 60;
+    timerEnabled  = timerEnabled !== undefined ? timerEnabled : (data.timerEnabled !== undefined ? data.timerEnabled : true);
+  }
+
+  save('wlog', weightLog); save('llog', liftLog);
+  save('prs', prs); save('sstate', sessionState);
+  save('timerDuration', timerDuration); save('timerEnabled', timerEnabled);
+
+  closeImportModal();
+  const added = mode === 'merge' ? ' (merged)' : ' (replaced)';
+  toast(`Data imported ✓${added}`);
+  renderProgress();
+  renderDash();
 }
 
 function confirmReset() {
